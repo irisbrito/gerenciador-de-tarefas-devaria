@@ -26,6 +26,10 @@ dependencies {
 	//runtimeOnly("mysql:mysql-connector-java")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	//testImplementation("org.springframework.security:spring-security-test")
+
+	//swagger
+	implementation("io.springfox:springfox-swagger2:2.7.0")
+	implementation("io.springfox:springfox-swagger-ui:2:2.7.0")
 }
 
 tasks.withType<KotlinCompile> {
