@@ -2,6 +2,7 @@ package com.devaria.todoapi.controller
 
 import com.devaria.todoapi.dto.ErrorDto
 import com.devaria.todoapi.dto.LoginDto
+import com.devaria.todoapi.dto.LoginResponseDto
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.PostMapping
@@ -26,7 +27,8 @@ class LoginController {
                return ResponseEntity(ErrorDto(status.value(), "Parâmetros de entrada inválidos"), status)
             }
 
-            return ResponseEntity("Login autenticado com sucesso", HttpStatus.OK)
+            val userTest = LoginResponseDto("User test", LOGIN_TESTE)
+            return ResponseEntity(userTest, HttpStatus.OK)
 
         } catch (e: Exception){
             return ResponseEntity(ErrorDto(HttpStatus.INTERNAL_SERVER_ERROR.value(),
