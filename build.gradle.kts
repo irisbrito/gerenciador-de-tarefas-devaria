@@ -29,7 +29,7 @@ dependencies {
 
 	//swagger
 	implementation("io.springfox:springfox-swagger2:2.7.0")
-	implementation("io.springfox:springfox-swagger-ui:2:2.7.0")
+	//implementation("io.springfox:springfox-swagger-ui:2:2.7.0")
 }
 
 tasks.withType<KotlinCompile> {
