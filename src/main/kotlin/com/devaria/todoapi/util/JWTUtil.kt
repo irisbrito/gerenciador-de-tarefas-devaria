@@ -36,5 +36,9 @@ class JWTUtil {
         }catch(e: Exception){
             null
         }
+
+    fun getUserId(token : String) : String? {
+        val claims = getClaims(token)
+        return claims?.subject
     }
 }
