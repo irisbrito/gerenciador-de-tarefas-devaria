@@ -18,8 +18,20 @@ class JWTUtil {
             .compact() // compacta tudo em uma string
     }
 
-    fun getClaims(token: String): Claims? {
-        return try {
+    fun isTokenValid(token : String) : Boolean {
+        val claims = getClaims(token)
+
+        if(claims != null){
+            val idUser = claims.subject
+            if(!idUser.isNullOrEmpty() && !idUser.isNullOrBlank()){
+                return true
+            }
+        }
+
+        return false
+    }
+
+    fun getClaims(token: String): Claims? = try {
             Jwts.parser().setSigningKey(securityKey.toByteArray()).parseClaimsJws(token).body
         }catch(e: Exception){
             null
