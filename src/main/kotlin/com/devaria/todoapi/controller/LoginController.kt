@@ -23,8 +23,8 @@ class LoginController {
         try{
             val status = HttpStatus.BAD_REQUEST
             if(dto == null || dto.login.isNullOrBlank() || dto.login.isNullOrEmpty() || 
-                    dto.senha.isNullOrBlank() || dto.senha.isNullOrEmpty() ||
-                    dto.login != LOGIN_TESTE || dto.senha != SENHA_TESTE) {
+                    dto.password.isNullOrBlank() || dto.password.isNullOrEmpty() ||
+                    dto.login != LOGIN_TESTE || dto.password != SENHA_TESTE) {
                return ResponseEntity(ErrorDto(status.value(), "Parâmetros de entrada inválidos"), status)
             }
 
