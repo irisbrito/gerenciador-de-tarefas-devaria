@@ -3,6 +3,7 @@ package com.devaria.todoapi.controller
 import com.devaria.todoapi.dto.ErrorDto
 import com.devaria.todoapi.dto.LoginDto
 import com.devaria.todoapi.dto.LoginResponseDto
+import com.devaria.todoapi.util.JWTUtil
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.PostMapping
@@ -27,7 +28,10 @@ class LoginController {
                return ResponseEntity(ErrorDto(status.value(), "Parâmetros de entrada inválidos"), status)
             }
 
-            val userTest = LoginResponseDto("User test", LOGIN_TESTE)
+            val idUser = 1
+            val token = JWTUtil().generateToken(idUser.toString())
+
+            val userTest = LoginResponseDto("User test", LOGIN_TESTE, token)
             return ResponseEntity(userTest, HttpStatus.OK)
 
         } catch (e: Exception){
